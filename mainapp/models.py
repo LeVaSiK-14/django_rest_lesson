@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     phone_number = models.CharField(max_length=127)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return self.username
@@ -17,7 +17,7 @@ class Post(models.Model):
     raiting = models.PositiveIntegerField(default=0)
 
     def __str__(self) -> str:
-        return self.user.username
+        return self.post
 
 
 class Comment(models.Model):
